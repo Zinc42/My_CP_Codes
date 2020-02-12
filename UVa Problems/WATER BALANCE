@@ -1,0 +1,126 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+   
+        int number;
+        
+        scanf("%d", &number);
+        
+        //numbers
+        vector<int> array(number);
+       
+        for(int i=0;i<number; i++){
+            int temp;
+            scanf("%d", &temp);
+            array[i]= (double)temp;
+        }
+        
+
+        
+       
+        
+        //operations
+       
+       
+        //start index 
+       int start = 0;
+	 while (start < number - 3)
+	 {
+		bool going = true;
+		
+		double qq1 = array[start]; double qq2 = array[start+1];
+		double previousAve = ((qq1+qq2) / 2);
+		
+		
+		
+		
+		
+		
+		
+		double currentAve = 0;
+		double lastAve = previousAve;
+		int i = 0;
+		int q = 0;
+		while (start + i + 2 < number)
+		{
+            double qq3 =  array[start + i + 2];
+			currentAve = ((lastAve * (i + 2) +qq3) / (i + 3));
+			
+			lastAve = currentAve;
+			i++;
+			if (currentAve <= previousAve)
+			{
+
+				previousAve = currentAve;
+				
+				q = i;
+			}
+			else
+			{
+				//going = false;
+			}
+			//end
+		}
+		
+		//System.out.println(i);
+		if (previousAve <= array[start])
+		{
+			  for (int j = start; j <= start + q + 1; j++)
+			  {
+				  array[j] = previousAve;
+				  int temp3 = previousAve;
+				  printf("%f\n", previousAve);
+				  printf("%f\n", array[j]);
+				  
+				  
+			  }
+			  start = start + q + 2;
+		}
+		else
+		{
+			start++;
+		}
+		//System.out.println(start);
+
+
+
+		//end
+	 }
+
+	 double lastAve = (array[number - 2] + array[number - 1]) / 2;
+	 if (lastAve <= array[number - 2])
+	 {
+		 array[number - 2] = lastAve;
+		 array[number - 1] = lastAve;
+	 }
+
+    
+        
+        
+        
+     for(int i=0; i<number; i++){
+            double temp = array[i];
+            printf("%f %s", temp, " ");
+       }   
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //end
+    }
+
+    
